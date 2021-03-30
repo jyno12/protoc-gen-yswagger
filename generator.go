@@ -83,7 +83,7 @@ func isQueryField(field *descriptor.FieldDescriptorProto) bool {
 
 func (t *swaggerGen) generateSwagger(file *descriptor.FileDescriptorProto) *plugin.CodeGeneratorResponse_File {
 	var pkg = file.GetPackage()
-	r := regexp.MustCompile("v(\\d+)$")
+	r := regexp.MustCompile(`v(\\d+)$`)
 	strs := r.FindStringSubmatch(pkg)
 	var vStr string
 	if len(strs) >= 2 {
@@ -181,7 +181,7 @@ func (t *swaggerGen) generateSwagger(file *descriptor.FileDescriptorProto) *plug
 			*resp.Schema.Properties = append(*resp.Schema.Properties, p)
 			p = keyVal{Key: "message", Value: &schemaCore{Type: "string"}}
 			*resp.Schema.Properties = append(*resp.Schema.Properties, p)
-			p = keyVal{Key: "requestID", Value: &schemaCore{Type: "string"}}
+			p = keyVal{Key: "request_id", Value: &schemaCore{Type: "string"}}
 			*resp.Schema.Properties = append(*resp.Schema.Properties, p)
 			p = keyVal{Key: "data", Value: schemaCore{Ref: "#/definitions/" + meth.GetOutputType()}}
 			*resp.Schema.Properties = append(*resp.Schema.Properties, p)
