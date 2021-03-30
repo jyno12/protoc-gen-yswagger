@@ -1,4 +1,4 @@
-module github.com/dangerous1990/protoc-gen-yswagger
+module github.com/jyno12/protoc-gen-yswagger
 
 require (
 	github.com/go-kratos/kratos v0.4.2
